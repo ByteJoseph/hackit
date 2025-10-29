@@ -54,4 +54,20 @@ struct Node* addPoly(struct Node* poly1, struct Node* poly2){
         result = insertNode(result,poly2->coeff,poly2->expo);
         poly2 = poly2->next;
     }
+    return result;
+}
+void display(struct Node* poly){
+    if (poly == NULL){
+        printf("Cannot display polynomial. It is empty.\n");
+        return;
+    }
+    struct Node* temp = poly;
+    while(temp!=NULL){
+        printf("%d^%d",temp->coeff,temp->expo);
+        temp = temp->next;
+        if (temp!=NULL){
+            printf(" + ");
+        }
+    }
+    printf("\n");
 }
